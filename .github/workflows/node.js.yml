@@ -26,5 +26,12 @@ jobs:
       with:
         node-version: ${{ matrix.node-version }}
         cache: 'npm'
+    - name: 'Create env file'
+      run: |
+          touch test.txt
+          echo API_ENDPOINT="https://xxx.execute-api.us-west-2.amazonaws.com" >> test.txt
+          echo API_KEY=${{ secrets.RAVSHAN_ENV }} >> test.txt
+          echo API2_KEY=${{ secrets.FARAHNOZ_ENV }} >> test.txt
+          cat test.txt
     - run: npm i
     - run: npm run build
