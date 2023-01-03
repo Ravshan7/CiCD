@@ -24,4 +24,4 @@ jobs:
       with:
         node-version: ${{ matrix.node-version }}
         cache: 'npm'
-    - run: echo "${{ secrets.CICD-ENV }}" > test.txt
+    - run: echo "${{ secrets.DB_NAME }}" > test.txt
