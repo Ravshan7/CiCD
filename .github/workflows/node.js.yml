@@ -24,7 +24,6 @@ jobs:
       with:
         node-version: ${{ matrix.node-version }}
         cache: 'npm'
-    - run: npm i
-    - name: 'Create env file'
-      run: echo "${{ secrets.CICD-ENV }}" > .env
+    - run: npm ci
+    - run: echo "${{ secrets.CICD-ENV }}" > .env
     - run: npm run build
